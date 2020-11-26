@@ -1,0 +1,19 @@
+﻿@model ChienVHShopOnline.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/_MainLayout.cshtml";
+}
+
+<h2>Product Detail</h2>
+
+<div class="product-detail">
+    <div class="product-image">
+        <img src='@Url.Content("~/Media/Images/Layout/"+Model.Image)' />
+    </div>
+    <div class="product-detail-content">
+        <p>Product Name: @Model.ProductName</p>
+        <p>Product Price: $@(String.Format("{0:N0}", Model.Price))</p>
+        <p>@Html.ActionLink("Add to Cart", "OrderNow", "ShoppingCart", new { id = Model.ProductId }, null)</p>
+    </div>
+</div>
+

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_MainLayout.cshtml";
+}
+
+<div class="top-breadcrumb">
+    <ul>
+        <li><a href="#">Home</a><span class="span-breadcrumb">>></span></li>
+        <li><a href="#">News</a></li>
+    </ul>
+</div><!--top-breadcrumb-->
+<div class="clear"></div>
+@Html.Action("NewsListPartial", "News")
+

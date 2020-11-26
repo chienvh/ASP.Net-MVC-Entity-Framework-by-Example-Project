@@ -1,0 +1,79 @@
+﻿@*@model IEnumerable<ChienVHShopOnline.Models.Category>*@
+
+@using ChienVHShopOnline.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.CategoryId })*@
+                @using (Html.BeginForm("Delete", "Category", new { id = item.CategoryId }, FormMethod.Post, new { onsubmit = "return confirm ('Are you sure you want to delete this?');" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="submit" value="Delete" class="buttonLink" />
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div class="clear"></div>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="div-pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+
+
+
+    @*<table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.CategoryId }) |
+    @using (Html.BeginForm("Delete", "Category", new { id = item.CategoryId }, FormMethod.Post, new { onsubmit = "return confirm ('Are you sure you want to delete this?');" }))
+            {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Delete" />
+    }
+    </td>
+    </tr>
+    }
+
+</table>*@

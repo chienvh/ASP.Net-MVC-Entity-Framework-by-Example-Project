@@ -1,0 +1,244 @@
+﻿body {
+    background-color: #f2f2f2;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.clear {
+    clear: both;
+}
+.error {
+    color: red;
+}
+
+#errmsg {
+    color: red;
+}
+
+.div-container {
+}
+
+    .div-container .div-header {
+        background-color: #333;
+        color: #ffffff;
+        padding: 20px;
+    }
+
+    .div-container .div-topmenu {
+        background-color: #ffffff;
+        padding: 20px;
+    }
+
+        .div-container .div-topmenu ul {
+            margin: 0;
+        }
+
+            .div-container .div-topmenu ul li {
+                float: left;
+                padding: 0 10px 0 10px;
+                margin-top: -7px;
+            }
+
+                .div-container .div-topmenu ul li a {
+                    text-decoration: none;
+                    color: black;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+
+                    .div-container .div-topmenu ul li a:hover {
+                        background-color: black;
+                        color: #ffffff;
+                    }
+
+    .div-container .div-left {
+        float: left;
+        width: 15%;
+        border-right: 3px solid #ffffff;
+        margin-top: 5px;
+    }
+
+        .div-container .div-left .category-title {
+            text-transform: uppercase;
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .div-container .div-left .category-list {
+        }
+
+            .div-container .div-left .category-list ul li {
+            }
+
+                .div-container .div-left .category-list ul li a {
+                    text-decoration: none;
+                    line-height: 25px;
+                }
+
+                    .div-container .div-left .category-list ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+    .div-container .div-main {
+        float: left;
+        width: 84%;
+    }
+
+        .div-container .div-main .top-breadcrumb {
+        }
+
+            .div-container .div-main .top-breadcrumb ul li {
+                float: left;
+            }
+
+                .div-container .div-main .top-breadcrumb ul li a {
+                    text-decoration: none;
+                    padding: 5px;
+                }
+
+                    .div-container .div-main .top-breadcrumb ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+            .div-container .div-main .top-breadcrumb .span-breadcrumb {
+                font-size: 10px;
+                color: #ff6a00;
+            }
+
+        .div-container .div-main .main-content {
+            float: left;
+            padding: 5px 10px 10px 5px;
+        }
+
+            .div-container .div-main .main-content .content-image {
+            }
+
+                .div-container .div-main .main-content .content-image img {
+                    width: 160px;
+                    height: 160px;
+                }
+
+            .div-container .div-main .main-content .content-title {
+            }
+
+                .div-container .div-main .main-content .content-title a {
+                    text-decoration: none;
+                }
+
+                    .div-container .div-main .main-content .content-title a:hover {
+                        color: #ff6a00;
+                    }
+
+            .div-container .div-main .main-content .content-price {
+                color: #ff0000;
+            }
+
+    .div-container .div-footer {
+        background-color: #333;
+        color: #ffffff;
+        padding: 5px 10px 5px 20px;
+        line-height: 10px;
+    }
+
+        .div-container .div-footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+            .div-container .div-footer a:hover {
+                text-decoration: underline;
+            }
+
+    .div-container .div-main .div-pagination li {
+        display: inline;
+        padding: 3px;
+    }
+
+    .div-container .div-main .div-pagination .pagination-container .pagination {
+        padding-left: 0;
+    }
+
+.main-content form {
+    float: right;
+}
+
+    .main-content form .buttonLink {
+        background: none !important;
+        border: none;
+        padding: 0 !important;
+        font: inherit;
+        border-bottom: 1px solid #333;
+        cursor: pointer;
+    }
+
+.main-content .shopping-cart th {
+    background-color: #1d5dd2;
+    color: white;
+}
+
+.main-content .shopping-cart #quantity {
+    width: 30%;
+    border: 1px solid #808080;
+    text-align: center;
+}
+
+.main-content .shopping-cart .delete-shopping {
+    color: black;
+    text-decoration: none;
+}
+
+    .main-content .shopping-cart .delete-shopping:hover {
+        color: orange;
+        text-decoration: underline;
+    }
+
+.main-content .shopping-cart .total-price-text {
+    text-transform: uppercase;
+    color: red;
+    font-weight: bold;
+}
+
+.main-content .shopping-cart .total-price-digit {
+    color: red;
+    font-weight: bold;
+}
+
+.main-content .continue-shopping {
+    text-decoration: none;
+    background-color: #1d5dd2;
+    padding: 10px;
+    color: white;
+}
+
+.main-content .update-shopping {
+    background-color: #1d5dd2;
+    color: white;
+    padding: 12px 12px 10px 12px;
+    border: none;
+}
+
+.main-content .product-detail .product-image {
+    float:left;
+    width: 50%;
+}
+    .main-content .product-detail .product-image img {
+        width: 200px;
+        height: 200px;
+    }
+.main-content .product-detail .product-detail-content {
+    float:left;
+    width: 50%;
+}

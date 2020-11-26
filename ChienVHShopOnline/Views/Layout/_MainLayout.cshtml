@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</head>
+<body>
+    <div class="div-container">
+        <div class="div-header">
+            Shopping Online - Get Reward
+        </div><!--div-header-->
+        <div class="clear"></div>
+        <div class="div-topmenu">
+            <ul>
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home") @**@
+                </li>
+                <li><a href="#">News</a></li>
+                <li>
+                    @Html.ActionLink("Products", "Index", "Products")
+                </li>
+                <li>
+                    @Html.ActionLink("Contact Us", "Index", "ContactUs") @**@
+                </li>
+                <li>
+                    @Html.ActionLink("Manage Color", "Index", "Colors") @**@
+                </li>
+                <li>
+                    @Html.ActionLink("News Management", "Index", "NewsManagement") @**@
+                </li>
+                <li>
+                    @Html.ActionLink("Cart", "Index", "ShoppingCart") @**@
+                </li>
+                <li>
+                    @Html.ActionLink("Order", "Index", "Order") @**@
+                </li>
+            </ul>
+        </div><!--div-topmenu-->
+        <div class="clear"></div>
+        <div class="div-left">
+            <div class="category-title">Category</div><!--category-title-->
+            <div class="category-list">
+                @Html.Action("CategoryPartial", "Category")                
+            </div><!--category-list-->
+        </div><!--div-left-->
+        <div class="div-main">
+            <div class="top-breadcrumb">
+                <ul>
+                    <li><a href="#">Home</a><span class="span-breadcrumb">>></span></li>
+                    <li><a href="#">Product</a></li>
+                </ul>
+            </div><!--top-breadcrumb-->
+            <div class="clear"></div>
+            <div class="main-content">
+               @RenderBody()
+            </div><!--main-content-->
+        </div><!--div-main-->
+        <div class="clear"></div>
+        <div class="div-footer">
+            <p>Copyright © @DateTime.Now.Year by Chien Vu Hoang. All rights reserved.</p>
+            <p>Email: <a href="mailto:chien.vh@gmail.com">ChienVH</a></p>
+            <p>Facebook: <a href="https://facebook.com/chienvh">https://facebook.com/chienvh</a> </p>
+        </div><!--div-footer-->
+    </div><!--div-container-->
+</body>
+</html>

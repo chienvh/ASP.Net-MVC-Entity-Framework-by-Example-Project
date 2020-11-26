@@ -1,0 +1,98 @@
+﻿@using ChienVHShopOnline.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_MainLayout.cshtml";
+}
+
+<h2>Check Out Shopping Cart</h2>
+
+@{
+    if (Session["Cart"] != null)
+    {
+        <table class="shopping-cart">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sub Total</th>
+            </tr>
+
+            @foreach (var cart in (List<Cart>)Session["Cart"])
+                {
+                <tr>
+                    <td>@Html.ActionLink(cart.Product.ProductName, "Details", "Products", new { id = cart.Product.ProductId }, new { @class = "delete-shopping" })</td>
+                    <td>$@(String.Format("{0:N0}", cart.Product.Price))</td>
+                    <td>
+                        <input type="text" name="quantity" id="quantity" value="@cart.Quantity" readonly />
+                    </td>
+                    <td>$@(String.Format("{0:N0}", cart.Product.Price * cart.Quantity))</td>
+                </tr>
+            }@*End of foreach cart items*@
+
+            <tr>
+                <td colspan="3" class="total-price-text">Total:</td>
+                <td class="total-price-digit">
+                    @{
+                        List<Cart> temp = (List<Cart>)Session["Cart"];
+                        var total = String.Format("{0:N0}", temp.Sum(x => x.Quantity * x.Product.Price));
+                    }
+
+                    $@total
+                </td>
+            </tr>
+        </table>
+                        } @*End of if session*@
+else
+{
+    <h4> No items in your cart!!!</h4>
+}
+}
+
+<br />
+@using (Html.BeginForm("ProcessOrder", "ShoppingCart", FormMethod.Post, new { id = "customer-form" }))
+{
+
+    <table>
+        <tr>
+            <td colspan="3" style="text-align:center;"><b>Customer's Information</b></td>
+        </tr>
+        <tr>
+            <td>Customer Name:</td>
+            <td><input type="text" name="cusName" /></td>
+        </tr>
+        <tr>
+            <td>Customer Phone:</td>
+            <td><input type="text" name="cusPhone" /></td>
+        </tr>
+        <tr>
+            <td>Customer Email:</td>
+            <td><input type="text" name="cusEmail" /></td>
+        </tr>
+        <tr>
+            <td>Customer Address:</td>
+            <td><input type="text" name="cusAddress" /></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="submit" value="Process Order" class="update-shopping"/></td>
+        </tr>
+    </table>
+}
+
+<script type="text/javascript">
+    $("#customer-form").validate({
+        rules: {
+            cusName: {
+                required: true
+            },
+            cusPhone: {
+                required: true
+            },
+            cusEmail: {
+                required: true
+            },
+            cusAddress: {
+                required: true
+            }
+        }
+    });
+</script>

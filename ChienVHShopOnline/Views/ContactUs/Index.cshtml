@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_MainLayout.cshtml";
+}
+
+<h2>You guys contact me if have any issues:</h2>
+
+<p>FullName: Chien Vu Hoang</p>
+<p>Email: chien.vh@gmail.com</p>
+<p>Skype: chien.vh</p>
+<p>Facebook: facebook.com/chienvh</p>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <p><b>Captcha Message: @ViewBag.Message</b></p>
+}
+<div class="row">
+    @using (Html.BeginForm("ValidateCaptcha", "ContactUs", FormMethod.Post, new { id = "contact-form" }))
+    {
+        <table>
+            <tr>
+                <td colspan="3" style="text-align:center;"><b>Send Queries to Us</b></td>
+            </tr>
+            <tr>
+                <td>Customer Name:</td>
+                <td><input type="text" name="cusName" /></td>
+            </tr>
+            <tr>
+                <td>Customer Phone:</td>
+                <td><input type="text" name="cusPhone" /></td>
+            </tr>
+            <tr>
+                <td>Customer Email:</td>
+                <td><input type="text" name="cusEmail" /></td>
+            </tr>
+            <tr>
+                <td>Content:</td>
+                <td>
+                @*<input type="text" name="cusContent" />*@
+                  <textarea name="cusContent" rows="10", cols="30"></textarea>
+                </td>
+            </tr>
+        </table>
+        <div class="g-recaptcha" data-sitekey="6Le2GC8UAAAAAB8qs65dp2f5SCPs-EWOSB4HHFPz"></div>
+        <br />
+        <input type="submit" value="Submit Form" />
+    }
+</div>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script type="text/javascript">
+    $("#contact-form").validate({
+        rules: {
+            cusName: {
+                required: true
+            },
+            cusPhone: {
+                required: true
+            },
+            cusEmail: {
+                required: true
+            },
+            cusContent: {
+                required: true
+            }
+        }
+    });
+</script>

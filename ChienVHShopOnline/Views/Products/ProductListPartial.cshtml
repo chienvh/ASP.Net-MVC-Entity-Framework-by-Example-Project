@@ -1,0 +1,32 @@
+﻿@using ChienVHShopOnline.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Product>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="main-content">
+            <div class="content-image">
+                <a href='@Url.Action("Details", "Products", new { id = item.ProductId}, null)'>
+                    <img src='@Url.Content("~/Media/Images/Layout/"+item.Image)' />
+                </a>
+            </div><!--content-image-->
+            <div class="content-title">
+                @Html.ActionLink(@item.ProductName, "Details", "Products", new { id = item.ProductId}, null)
+            </div><!--content-title-->
+            <div class="content-price">
+                Price: $@(String.Format("{0:N0}", item.Price))
+            </div><!--content-price-->
+            <div class="content-price">
+                @Html.ActionLink("Add to Cart", "OrderNow","ShoppingCart", new { id = item.ProductId}, null)
+            </div><!--content-price-->
+        </div><!--main-content-->
+    }
+}
+
+<div class="clear"></div>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="div-pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page= page, category = ViewBag.category }))
+</div>

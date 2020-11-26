@@ -1,0 +1,61 @@
+﻿@model ChienVHShopOnline.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/_MainLayout.cshtml";
+}
+
+<h2>Order Details</h2>
+
+<div>
+    <h4>Order: @Html.DisplayFor(model => model.OrderID)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate) : @String.Format("{0:MM/dd/yyyy}", Model.OrderDate)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType) : @Html.DisplayFor(model => model.PaymentType)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status) : @Html.DisplayFor(model => model.Status)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName) : @Html.DisplayFor(model => model.CustomerName)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerPhone) : @Html.DisplayFor(model => model.CustomerPhone)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerEmail) : @Html.DisplayFor(model => model.CustomerEmail)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddress) : @Html.DisplayFor(model => model.CustomerAddress)
+        </dt>
+    </dl>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+
+    @foreach (var item in Model.OrderDetails)
+    {
+        <tr>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Quantity</td>
+            <td>$@(String.Format("{0:N0}", item.Price))</td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

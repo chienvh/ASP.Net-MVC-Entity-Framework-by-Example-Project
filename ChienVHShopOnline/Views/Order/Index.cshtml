@@ -1,0 +1,81 @@
+﻿@using ChienVHShopOnline.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_MainLayout.cshtml";
+}
+
+<h2>Orders Listing</h2>
+
+<p>
+    @Html.ActionLink("Export Order Listing", "ExportOrderListing")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            OrderDate
+        </th>
+        <th>
+            PaymentType
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            CustomerName
+        </th>
+        <th>
+            CustomerPhone
+        </th>
+        <th>
+            CustomerEmail
+        </th>
+        <th>
+            CustomerAddress
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.OrderDate)*@
+            @String.Format("{0:MM/dd/yyyy}", @item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="clear"></div>
+@if (@Model.PageCount > 1)
+{
+    <span>Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount </span>
+<div class="div-pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+}

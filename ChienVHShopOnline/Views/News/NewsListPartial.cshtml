@@ -1,0 +1,27 @@
+﻿@using ChienVHShopOnline.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<News>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="main-content">
+            <div class="content-image">
+                <a href="#"><img src='@Url.Content("~/Media/Images/News/"+item.Image)' /></a>
+            </div><!--content-image-->
+            <div class="content-title">
+                <a href="#">@item.Title</a>
+            </div><!--content-title-->
+            <div class="content-price">
+                
+            </div><!--content-price-->
+        </div><!--main-content-->
+    }
+}
+
+<div class="clear"></div>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="div-pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
