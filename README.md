@@ -17,7 +17,12 @@ The best Free Asp.Net MVC and Entity framework. Throughout the course, you will 
 
 8. Know how to work with reports.
 
-# You can access the full free course on Youtube via the following link: https://www.youtube.com/watch?v=VImsLQRdqC8&amp;list=PLp1Emx1rT4z9MYuP7U8GVUMvKYz_NM9AY
+# Important note: Run through this video to know how to get and setup the source code on your local pc for continuing development.
+
+https://www.youtube.com/watch?v=WWpauKF__fQ&list=UUMmPgIi9x7x1heJsPrf4biA
+
+# You can access the full free course on Youtube via the following link: 
+https://www.youtube.com/watch?v=VImsLQRdqC8&amp;list=PLp1Emx1rT4z9MYuP7U8GVUMvKYz_NM9AY
 
 + Day1: Create Database Using SQL Server
 https://www.youtube.com/watch?v=VImsLQRdqC8&list=PLp1Emx1rT4z9MYuP7U8GVUMvKYz_NM9AY
